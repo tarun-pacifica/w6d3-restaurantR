@@ -75,8 +75,62 @@ var display_restaurant = function (restaurant) {
 }
 
 
+var update_restaurant = function () {
+    var restaurant_id = $('#restaurant_id').val();
+    var name = $('#name').val();
+    var cuisine = $('#cuisine').val();
+    var address = $('#address').val();
+    var token = $('authenticity_token').val();
+
+$.ajax({
+      dataType: 'json',
+      type: 'POST',
+      url: '/restaurants' + restaurant_id,
+      data: {
+        '_method': 'put',
+        'authenticity_token': token,
+        restaurant: {
+        'name': name,
+        'cuisine': cuisine,
+        'address': address
+      }
+    }
+  }).done(display_restaurant);
+
+    return false;
+  };
+
+var edit_restaurant = function () {
+
+  //   if ($('.form').is(':hidden')){
+  //     toggle_form();
+  // }
+  //   $('#create_task').hide();
+  //   $('#update_task').show();
+
+    $('#name').focus();
+
+
+    var $ul = $(this).closest('ul');
+
+
+    var id = $ul.find('.restaurant_id').text();
+    var name = $ul.find('.name').text();
+    var cuisine = $ul.find('.cuisine').text();
+    var address = $ul.find('.address').text();
+
+    $('#restaurant_id').val(id);
+    $('#name').val(name);
+    $('#cuisine').val(cuisine);
+    $('#address').val(address);
+  };
+
+
+
 
 
 $('#create_restaurant').click(create_restaurant);
+$('#update_restaurant').click(update_restaurant);
+$('#restaurants').on('click','button', edit_restaurant);
 
   });

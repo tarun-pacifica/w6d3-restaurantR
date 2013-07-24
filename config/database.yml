@@ -4,6 +4,6 @@ development:
   database: tlab_development
   pool: 5
   host: localhost
-  username: MOOKBOOK13
+  username: Lotus
   password:
 

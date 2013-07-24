@@ -1,12 +1,13 @@
 class RestaurantsController < ApplicationController
+  before_filter :ensure_logged_in
   def index
-    @restaurants = Restaurant.all
+    @restaurants =  Restaurant.all
   end
 
   def create
 
     restaurant = Restaurant.create(params[:restaurant])
-
+    @auth.restaurants << restaurant
     render :json => restaurant
   end
 

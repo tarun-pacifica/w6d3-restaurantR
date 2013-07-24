@@ -10,12 +10,14 @@
 #  updated_at :datetime         not null
 #  latitude   :float            default(0.0)
 #  longitude  :float            default(0.0)
+#  user_id    :integer
 #
 
 class Restaurant < ActiveRecord::Base
   before_save :geocode
 
-  attr_accessible :name, :cuisine, :address, :latitude, :longitude
+  attr_accessible :name, :cuisine, :address, :latitude, :longitude, :user_id
+  belongs_to :user, :inverse_of => :restaurants
 
   private
   def geocode

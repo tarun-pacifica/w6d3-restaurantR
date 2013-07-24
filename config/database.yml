@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: tlab_development
+  pool: 5
+  host: localhost
+  username: MOOKBOOK13
+  password:
+

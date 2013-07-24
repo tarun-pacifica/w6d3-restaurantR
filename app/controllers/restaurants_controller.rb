@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    binding.pry
+
     restaurant = Restaurant.create(params[:restaurant])
 
     render :json => restaurant

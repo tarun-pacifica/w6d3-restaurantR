@@ -1,12 +1,14 @@
 %ol#restaurants
   - @restaurants.each do |restaurant|
     %ul
+      %script
+        = "$(document).ready(function () {"
+        = "add_marker(#{restaurant.latitude}, #{restaurant.longitude}, '#{restaurant.name}');"
+        = "});"
       %li.id.invisible= restaurant.id
       %li.name= restaurant.name
       %li.cuisine= restaurant.cuisine
       %li.address= restaurant.address
-      %li.longitude= restaurant.longitude
-      %li.latitude= restaurant.latitude
       %li= button_tag 'Edit restaurant',  :class =>  'button radius success tiny edit_button'
 
 %div#map
@@ -25,7 +27,7 @@
           = text_field_tag 'cuisine'
           = label_tag 'address'
           = text_field_tag 'address'
-          = hidden_field_tag 'id'
+          = hidden_field_tag 'restaurant_id'
           = link_to('Cancel', '#', :id=>'cancel_restaurant', :class => 'button radius tiny alert')
           = submit_tag 'Create New Restaurant', :id => 'create_restaurant', :class => 'button radius tiny'
           = submit_tag 'Edit Restaurant', :id => 'update_restaurant', :class => 'button radius success tiny'

@@ -3,10 +3,35 @@
 }
 
 #map_canvas {
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 600px;
 }
 
 .invisible {
   display: none!important;
+}
+
+.top-bar {
+  background-color: #890000;
+}
+
+.top-bar-section {
+  background-color: #890000;
+}
+
+div {
+  margin: 1px;
+}
+
+button radius success tiny{
+  background-color: #890000;
+}
+.results {
+  border-top: 1px solid #890000;
+}
+
+h2 {
+  text-align: center;
+  color: #890000;
+  font-size: 3em;
 }
